@@ -46,17 +46,17 @@
                             </svg></a></div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Menu Utama</h4>
+                    <h4 class="text-lg font-bold mb-6">Menu</h4>
                     <ul class="space-y-3">
-                        <li><button class="text-gray-400 hover:text-white transition-colors duration-200">Tentang
-                                Kami</button></li>
-                        <li><button
-                                class="text-gray-400 hover:text-white transition-colors duration-200">Program</button>
+                        <li><button class="text-gray-400 hover:text-white transition-colors duration-200">Home</button>
                         </li>
-                        <li><button class="text-gray-400 hover:text-white transition-colors duration-200">Tenaga
-                                Pengajar</button></li>
                         <li><button
                                 class="text-gray-400 hover:text-white transition-colors duration-200">Berita</button>
+                        </li>
+                        <li><button
+                                class="text-gray-400 hover:text-white transition-colors duration-200">Artikel</button>
+                        </li>
+                        <li><button class="text-gray-400 hover:text-white transition-colors duration-200">SPMB</button>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +69,8 @@
                                 class="lucide lucide-map-pin w-4 h-4 mr-3 flex-shrink-0">
                                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
-                            </svg><span class="text-sm">Jl. Raya Bogor KM 35, Bogor</span></div>
+                            </svg><span class="text-sm">Tegal Asri, Kowangan, Kec. Temanggung, Kab. Temanggung, Jawa
+                                Tengah</span></div>
                         <div class="flex items-center text-gray-400"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

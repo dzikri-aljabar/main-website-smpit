@@ -115,10 +115,10 @@
                         <img src="{{ asset('storage/' . $berita->gambar) }}"
                             class="w-full h-48 object-cover rounded-lg mb-4" />
                         <h3 class="font-bold text-lg">{{ $berita->judul }}</h3>
-                        <p class="text-sm mt-2">
+                        <p class="text-sm my-2">
                             {{ Str::limit(strip_tags($berita->konten), 100, '...') }}
                         </p>
-                        <a href="http://127.0.0.1:8000/berita/{{ $berita->slug }}"
+                        <a href="/berita/{{ $berita->slug }}"
                             class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
                             Selengkapnya</a>
                     </div>
