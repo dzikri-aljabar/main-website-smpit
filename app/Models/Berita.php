@@ -14,6 +14,8 @@ class Berita extends Model
         'slug',
         'konten',
         'gambar',
+        'jenis',
+        'penulis',
     ];
 
     protected static function booted()

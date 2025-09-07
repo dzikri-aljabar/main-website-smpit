@@ -14,6 +14,12 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <title>{{ $title ?? 'SMPIT Cahaya Insani' }}</title>
+    <meta property="og:title" content="{{ $ogTitle ?? 'Default Title' }}">
+    <meta property="og:description" content="{{ $ogDescription ?? 'Default Description' }}">
+    <meta property="og:image" content="{{ $ogImage ?? asset('images/default.jpg') }}">
+    <meta property="og:url" content="{{ $ogUrl ?? url()->current() }}">
+    <meta property="og:type" content="{{ $ogType ?? 'website' }}">
     <style>
         .editor-content h1,
         .editor-content h2 {
@@ -83,7 +89,6 @@
             max-width: 100%;
             height: auto;
             margin: 1rem 0;
-            border-radius: 8px;
         }
     </style>
 </head>
