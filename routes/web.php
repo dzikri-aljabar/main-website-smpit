@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\HomeController;
+use Spatie\Sitemap\SitemapGenerator;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'show']);
@@ -49,4 +50,15 @@ Route::get('/berita', function () {
 });
 Route::get('/artikel', function () {
     return view('maintenance');
+});
+
+Route::get('/generate-sitemap', function () {
+    SitemapGenerator::create(config('app.url'))
+    ->configureCrawler(function (\Spatie\Crawler\Crawler $crawler) {
+        $crawler->setMaximumDepth(3); // biar tidak terlalu dalam
+        $crawler->setDelayBetweenRequests(200); // biar server aman
+    })
+    ->writeToFile(public_path('sitemap.xml'));
+
+    return 'Sitemap otomatis berhasil dibuat!';
 });

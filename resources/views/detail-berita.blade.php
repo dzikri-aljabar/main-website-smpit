@@ -43,7 +43,7 @@
                 <div class=" sticky top-5">
                     <div class="shadow-[0px_0px_20px_-6px_#e3e3e3] rounded-lg p-4 mb-4">
                         <h2 class="text-xl font-bold mb-4">Pendaftaran Inden 2026/2027</h2>
-                        <img src="{{ asset('assets/brosur.jpg') }}" alt="">
+                        <img src="{{ asset('assets/27.jpg') }}" alt="">
                         <p class="text-gray-500 my-2">Pendaftaran Inden 2026/2027 telah dibuka. Silakan kunjungi halaman
                             pendaftaran untuk informasi lebih lanjut.</p>
                         <a href="https://wa.me/08112540402"
