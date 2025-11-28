@@ -9,7 +9,9 @@ class HomeController
 {
     public function index()
     {
-        $beritas = Berita::all();
-        return view('home', compact('beritas'));
+        $beritas = Berita::where('jenis', 'berita')->latest()->take(3)->get();
+        $artikels = Berita::where('jenis', 'artikel')->latest()->take(3)->get();
+
+        return view('home', compact([   'beritas', 'artikels']));
     }
 }

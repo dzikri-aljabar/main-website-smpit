@@ -131,39 +131,19 @@
                 <h2 class="font-bold text-[#FF5700] text-xl mt-8">Artikel Terbaru</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[20px] lg:px-[85px] mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-28-at-09.31.35-1100x525.jpeg"
-                        class="w-full h-48 object-cover rounded-lg mb-4" />
-                    <h3 class="font-bold text-lg">Judul Berita 1</h3>
-                    <p class="text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <a href="#" class="text-[#FF5700] font-bold mt-4 inline-block hover:underline">Baca
-                        Selengkapnya</a>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-28-at-09.31.35-1100x525.jpeg"
-                        class="w-full h-48 object-cover rounded-lg mb-4" />
-                    <h3 class="font-bold text-lg">Judul Berita 2</h3>
-                    <p class="text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <a href="#" class="text-[#FF5700] font-bold mt-4 inline-block hover:underline">Baca
-                        Selengkapnya</a>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-md">
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-28-at-09.31.35-1100x525.jpeg"
-                        class="w-full h-48 object-cover rounded-lg mb-4" />
-                    <h3 class="font-bold text-lg">Judul Berita 2</h3>
-                    <p class="text-sm mt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <a href="#" class="text-[#FF5700] font-bold mt-4 inline-block hover:underline">Baca
-                        Selengkapnya</a>
-                </div>
+                @foreach ($artikels as $artikel)
+                    <div class="bg-white flex flex-col p-4 rounded-lg shadow-md">
+                        <img src="{{ asset('storage/' . $artikel->gambar) }}"
+                            class="w-full h-48 object-cover rounded-lg mb-4" />
+                        <h3 class="font-bold text-lg">{{ $artikel->judul }}</h3>
+                        <p class="text-sm my-2">
+                            {{ Str::limit(strip_tags($artikel->konten), 100, '...') }}
+                        </p>
+                        <a href="/berita/{{ $artikel->slug }}"
+                            class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
+                            Selengkapnya</a>
+                    </div>
+                @endforeach
             </div>
     </section>
 </x-layouts.app>
