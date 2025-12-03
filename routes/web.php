@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\VisiMisiController;
@@ -9,6 +10,9 @@ use Spatie\Sitemap\SitemapGenerator;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'show']);
 Route::get('/profil/visi-misi', [VisiMisiController::class, 'index']);
+Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/artikel', [ArtikelController::class, 'index']);
+
 Route::get('/profil/sekolah/budaya', function () {
     return view('maintenance');
 });
@@ -43,12 +47,6 @@ Route::get('/galeri/pondok', function () {
     return view('maintenance');
 });
 Route::get('/spmb', function () {
-    return view('maintenance');
-});
-Route::get('/berita', function () {
-    return view('maintenance');
-});
-Route::get('/artikel', function () {
     return view('maintenance');
 });
 
