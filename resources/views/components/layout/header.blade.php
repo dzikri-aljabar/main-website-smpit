@@ -2,7 +2,7 @@
     <header class="z-10">
         <nav class="bg-white border-gray-200 shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)]">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://smpitcahayainsanii.sch.id" class="flex items-center gap-x-2">
+                <a href="https://smpitcahayainsani.sch.id" class="flex items-center gap-x-2">
                     <img src="{{ asset('assets/logo.png') }}" class="w-18" alt="" />
                     <div class="text-[#0C5446]">
                         <h1 class="font-bold text-md md:text-lg lg:text-xl">
