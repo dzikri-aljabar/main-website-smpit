@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ArtikelController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\VisiMisiController;
-use App\Http\Controllers\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SklController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\VisiMisiController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'show']);
@@ -14,10 +15,7 @@ Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/profil/sekolah/budaya', [\App\Http\Controllers\BudayaController::class, 'index']);
 Route::get('/profil/guru', [\App\Http\Controllers\GuruController::class, 'index']);
-
-Route::get('/profil/sekolah/skl', function () {
-    return view('maintenance');
-});
+Route::get('/profil/sekolah/skl', [SklController::class, 'index']);
 
 Route::get('/program/sekolah/kurikulum', function () {
     return view('maintenance');
