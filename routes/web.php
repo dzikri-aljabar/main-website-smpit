@@ -13,13 +13,12 @@ Route::get('/profil/visi-misi', [VisiMisiController::class, 'index']);
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/profil/sekolah/budaya', [\App\Http\Controllers\BudayaController::class, 'index']);
+Route::get('/profil/guru', [\App\Http\Controllers\GuruController::class, 'index']);
 
 Route::get('/profil/sekolah/skl', function () {
     return view('maintenance');
 });
-Route::get('/profil/guru', function () {
-    return view('maintenance');
-});
+
 Route::get('/program/sekolah/kurikulum', function () {
     return view('maintenance');
 });
