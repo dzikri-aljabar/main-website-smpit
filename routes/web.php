@@ -12,10 +12,8 @@ Route::get('/berita/{slug}', [BeritaController::class, 'show']);
 Route::get('/profil/visi-misi', [VisiMisiController::class, 'index']);
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/artikel', [ArtikelController::class, 'index']);
+Route::get('/profil/sekolah/budaya', [\App\Http\Controllers\BudayaController::class, 'index']);
 
-Route::get('/profil/sekolah/budaya', function () {
-    return view('maintenance');
-});
 Route::get('/profil/sekolah/skl', function () {
     return view('maintenance');
 });
