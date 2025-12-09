@@ -10,6 +10,6 @@ class VisiMisiController extends Controller
     public function index()
     {
         $konten = VisiMisi::first();
-        return view('visi-misi', compact('konten'));
+        return view('profil.visi-misi', compact('konten'));
     }
 }

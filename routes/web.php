@@ -16,19 +16,11 @@ Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/profil/sekolah/budaya', [\App\Http\Controllers\BudayaController::class, 'index']);
 Route::get('/profil/guru', [\App\Http\Controllers\GuruController::class, 'index']);
 Route::get('/profil/sekolah/skl', [SklController::class, 'index']);
+Route::get('/program/sekolah/kurikulum', [\App\Http\Controllers\SekolahKurikulum::class, 'index']);
+Route::get('/program/sekolah/kesiswaan', [\App\Http\Controllers\SekolahKesiswaan::class, 'index']);
+Route::get('/program/pondok/kurikulum', [\App\Http\Controllers\PondokKurikulum::class, 'index']);
+Route::get('/program/pondok/kesantrian', [\App\Http\Controllers\PondokKesantrian::class, 'index']);
 
-Route::get('/program/sekolah/kurikulum', function () {
-    return view('maintenance');
-});
-Route::get('/program/sekolah/kesiswaan', function () {
-    return view('maintenance');
-});
-Route::get('/program/pondok/kurikulum', function () {
-    return view('maintenance');
-});
-Route::get('/program/pondok/kesantrian', function () {
-    return view('maintenance');
-});
 Route::get('/prestasi/guru', function () {
     return view('maintenance');
 });
@@ -47,11 +39,11 @@ Route::get('/spmb', function () {
 
 Route::get('/generate-sitemap', function () {
     SitemapGenerator::create(config('app.url'))
-    ->configureCrawler(function (\Spatie\Crawler\Crawler $crawler) {
-        $crawler->setMaximumDepth(3); // biar tidak terlalu dalam
-        $crawler->setDelayBetweenRequests(200); // biar server aman
-    })
-    ->writeToFile(public_path('sitemap.xml'));
+        ->configureCrawler(function (\Spatie\Crawler\Crawler $crawler) {
+            $crawler->setMaximumDepth(3); // biar tidak terlalu dalam
+            $crawler->setDelayBetweenRequests(200); // biar server aman
+        })
+        ->writeToFile(public_path('sitemap.xml'));
 
     return 'Sitemap otomatis berhasil dibuat!';
 });

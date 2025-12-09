@@ -9,6 +9,6 @@ class BudayaController extends Controller
     public function index()
     {
         $budaya = \App\Models\Budaya::first();
-        return view('budaya', compact('budaya'));
+        return view('profil.budaya', compact('budaya'));
     }
 }

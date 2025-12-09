@@ -9,6 +9,6 @@ class SklController extends Controller
     public function index()
     {
         $konten = \App\Models\Skl::first();
-        return view('skl', compact('konten'));
+        return view('profil.skl', compact('konten'));
     }
 }
