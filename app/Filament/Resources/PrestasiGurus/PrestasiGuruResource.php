@@ -13,14 +13,17 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PrestasiGuruResource extends Resource
 {
     protected static ?string $model = PrestasiGuru::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'ionicon-medal-outline';
 
     protected static ?string $recordTitleAttribute = 'Prestasi Guru';
+
+    protected static string | UnitEnum | null $navigationGroup = 'Prestasi';
 
     public static function form(Schema $schema): Schema
     {

@@ -13,14 +13,17 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class VisiMisiResource extends Resource
 {
     protected static ?string $model = VisiMisi::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'iconpark-futurebuildthree-o';
 
     protected static ?string $recordTitleAttribute = 'Visi Misi';
+
+    protected static string | UnitEnum | null $navigationGroup = 'Profil';
 
     public static function form(Schema $schema): Schema
     {

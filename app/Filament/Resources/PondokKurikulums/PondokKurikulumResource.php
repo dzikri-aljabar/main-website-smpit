@@ -13,14 +13,17 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PondokKurikulumResource extends Resource
 {
     protected static ?string $model = PondokKurikulum::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'phosphor-mosque';
 
     protected static ?string $recordTitleAttribute = 'Kurikulum';
+
+    protected static string | UnitEnum | null $navigationGroup = 'Program';
 
     public static function form(Schema $schema): Schema
     {

@@ -7,9 +7,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "andreiio/blade-remix-icon": "^3.7",
+        "codeat3/blade-iconpark": "^1.7",
+        "codeat3/blade-phosphor-icons": "^2.3",
+        "faisal50x/blade-ionicons": "^1.1",
         "filament/filament": "*",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
+        "mallardduck/blade-boxicons": "^2.4",
+        "secondnetwork/blade-tabler-icons": "^3.35",
         "spatie/laravel-sitemap": "^7.3"
     },
     "require-dev": {
