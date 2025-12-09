@@ -20,10 +20,9 @@ Route::get('/program/sekolah/kurikulum', [\App\Http\Controllers\SekolahKurikulum
 Route::get('/program/sekolah/kesiswaan', [\App\Http\Controllers\SekolahKesiswaan::class, 'index']);
 Route::get('/program/pondok/kurikulum', [\App\Http\Controllers\PondokKurikulum::class, 'index']);
 Route::get('/program/pondok/kesantrian', [\App\Http\Controllers\PondokKesantrian::class, 'index']);
+Route::get('/prestasi/guru', [\App\Http\Controllers\PrestasiGuru::class, 'index']);
 
-Route::get('/prestasi/guru', function () {
-    return view('maintenance');
-});
+
 Route::get('/prestasi/peserta-didik', function () {
     return view('maintenance');
 });
