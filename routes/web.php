@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\VisiMisiController;
+use App\Http\Controllers\GaleriPondokController;
+use App\Http\Controllers\GaleriSekolahController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [BeritaController::class, 'show']);
@@ -22,14 +24,12 @@ Route::get('/program/pondok/kurikulum', [\App\Http\Controllers\PondokKurikulum::
 Route::get('/program/pondok/kesantrian', [\App\Http\Controllers\PondokKesantrian::class, 'index']);
 Route::get('/prestasi/guru', [\App\Http\Controllers\PrestasiGuru::class, 'index']);
 Route::get('/prestasi/peserta-didik', [\App\Http\Controllers\PrestasiPesertaDidik::class, 'index']);
+Route::get('/galeri/sekolah', [GaleriSekolahController::class, 'index']);
+Route::get('/galeri/sekolah/{slug}', [GaleriSekolahController::class, 'show']);
+Route::get('/galeri/pondok', [GaleriPondokController::class, 'index']);
+Route::get('/galeri/pondok/{slug}', [GaleriPondokController::class, 'show']);
 
 
-Route::get('/galeri/sekolah', function () {
-    return view('maintenance');
-});
-Route::get('/galeri/pondok', function () {
-    return view('maintenance');
-});
 Route::get('/spmb', function () {
     return view('maintenance');
 });
