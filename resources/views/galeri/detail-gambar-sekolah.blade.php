@@ -6,7 +6,7 @@
                 class=" max-w-[90vw] max-h-[90vh] object-contain">
             <div class="flex justify-center">
                 <a href="/galeri/sekolah" class="py-2 px-4 rounded-xl bg-[#FF5700] text-white font-bold">
-                    Kembali Ke Galeri Pondok
+                    Kembali Ke Galeri Sekolah
                 </a>
             </div>
 
