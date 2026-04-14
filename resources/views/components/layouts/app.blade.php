@@ -20,6 +20,7 @@
     <meta property="og:image" content="{{ $ogImage ?? asset('images/default.jpg') }}">
     <meta property="og:url" content="{{ $ogUrl ?? url()->current() }}">
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.png') }}">
     <style>
         .editor-content h1,
         .editor-content h2 {
