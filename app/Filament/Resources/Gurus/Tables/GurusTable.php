@@ -15,7 +15,11 @@ class GurusTable
     {
         return $table
             ->columns([
-                TextColumn::make('konten')->label('Konten Profil Guru')->limit(200),
+                TextColumn::make('konten')
+                    ->html()
+                    ->wrap()
+                    ->grow()
+                    ->verticallyAlignStart()
             ])
             ->filters([
                 //

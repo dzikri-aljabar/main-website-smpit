@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Skls\Tables;
 
-use Dom\Text;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
@@ -15,7 +14,11 @@ class SklsTable
     {
         return $table
             ->columns([
-                TextColumn::make('konten')->label('Konten SKL')->limit(200),
+                TextColumn::make('konten')
+                    ->html()
+                    ->wrap()
+                    ->grow()
+                    ->verticallyAlignStart()
             ])
             ->filters([
                 //

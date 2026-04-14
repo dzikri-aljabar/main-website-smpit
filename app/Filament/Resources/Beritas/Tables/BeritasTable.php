@@ -21,8 +21,18 @@ class BeritasTable
                     ->searchable()
                     ->limit(35),
                 TextColumn::make('slug')
-                    ->searchable()
-                    ->limit(35),
+                    ->label('Link')
+                    ->formatStateUsing(
+                        fn($state, $record) =>
+                        $record->jenis . '/' . $state
+                    )
+                    ->copyable()
+                    ->copyableState(fn($record) => match ($record->jenis) {
+                        'berita' => route('berita.show', ['slug' => $record->slug]),
+                        'artikel' => route('artikel.show', ['slug' => $record->slug]),
+                        default => url('/' . $record->slug),
+                    })
+                    ->wrap(),
                 TextColumn::make('jenis')
                     ->label('Jenis')
                     ->sortable(),
@@ -44,21 +54,6 @@ class BeritasTable
             ])
             ->recordActions([
                 EditAction::make(),
-                Action::make('copy-link')
-                    ->label('Copy Link')
-                    ->color('info')
-                    ->icon('heroicon-o-clipboard')
-                    ->action(
-                        fn($record) =>
-                        Notification::make()
-                            ->title('Link berhasil disalin')
-                            ->success()
-                            ->send()
-                    )
-                    ->extraAttributes(fn($record) => [
-                        'x-data' => "{ link: '" . url('/berita/' . $record->slug) . "' }",
-                        'x-on:click' => "navigator.clipboard.writeText(link)",
-                    ]),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
