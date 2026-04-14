@@ -7,7 +7,9 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class GalerisTable
 {
@@ -19,7 +21,11 @@ class GalerisTable
                 TextColumn::make('jenis')->label('Jenis Galeri'),
             ])
             ->filters([
-                //
+                SelectFilter::make('jenis')
+                    ->options([
+                        'sekolah' => 'Sekolah',
+                        'pondok' => 'Pondok',
+                    ])
             ])
             ->recordActions([
                 EditAction::make(),

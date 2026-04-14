@@ -15,7 +15,11 @@ class VisiMisisTable
     {
         return $table
             ->columns([
-                TextColumn::make('konten')->label('Konten Visi & Misi')->limit(200),
+                TextColumn::make('konten')
+                    ->html()
+                    ->wrap()
+                    ->grow()
+                    ->verticallyAlignStart()
             ])
             ->filters([
                 //

@@ -15,7 +15,11 @@ class BudayasTable
     {
         return $table
             ->columns([
-                TextColumn::make('konten')->label('Konten Budaya Sekolah')->limit(200),
+                TextColumn::make('konten')
+                    ->html()
+                    ->wrap()
+                    ->grow()
+                    ->verticallyAlignStart()
             ])
             ->filters([
                 //
