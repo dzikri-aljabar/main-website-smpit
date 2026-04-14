@@ -6,9 +6,6 @@
                     <img class="mb-4 w-full rounded-lg" src="{{ asset('storage/' . $galeri->path) }}" alt="{{ $galeri->alt }}">
                 </a>
             @endforeach
-            
         </div>
-
     </section>
-
 </x-layouts.app>

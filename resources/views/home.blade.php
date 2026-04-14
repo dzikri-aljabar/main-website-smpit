@@ -3,16 +3,19 @@
         <div id="default-carousel" class="relative w-full -z-10" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative min-h-[200px] md:min-h-screen overflow-hidden">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2020/06/UDAH-GEDE33-1100x525.png"
-                        class="block w-full h-auto md:h-full object-contain md:object-cover" alt="..." />
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-28-at-09.31.35-1100x525.jpeg"
-                        class="block w-full h-auto md:h-full object-contain md:object-cover" alt="..." />
-                </div>
+                @if (empty($banners))
+                    <div class="flex items-center justify-center h-full">
+                        <h1 class="font-semibold text-lg text-gray-500">Tidak ada banner.</h1>
+                    </div>
+                @else
+                    @foreach ($banners as $banner)
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                            <img src="{{ asset('storage/' . $banner->path) }}"
+                                class="block w-full h-auto md:h-full object-contain md:object-cover"
+                                alt="{{ $banner->nama }}" />
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -56,52 +59,43 @@
     <section
         class="bg-gradient-to-r from-green-800 to-emerald-600  mt-8 px-[20px] lg:px-[85px] py-12 flex flex-col space-y-20 text-white">
         <div class="flex flex-col md:flex-row justify-center items-center">
-            <div class="w-96">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjgfI5W3gn7ElpuWGbYRFF9BFtRbyMOuUo7krhOII-4gu5jEwnJ8JA8rTpFnTl0EDsXj0up629CU-ppOsXndFftwEFrO9L3rIi5VzlvNsY-OzKOohqc7JoZtJ-bpQvwFUlDrLa2x6cJ6oc7nH08Y7zQYIlP09Uo5YsKezm5BtagfV77iG27UMjmOUQ7D2Zg=s720"
-                    class="w-64 mx-auto border-2 border-[#FF5700] rounded-lg shadow-lg" />
-            </div>
-            <div class="md:w-3/5">
-                <h2 class="font-bold text-xl mt-5">Sambutan Kepala Sekolah</h2>
-                <p class="text-sm mt-4 text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Inventore, facilis distinctio suscipit repellendus culpa
-                    molestiae, ipsam cumque nemo quos quibusdam reprehenderit,
-                    voluptatum aut sequi quis modi molestias saepe blanditiis!
-                    Aliquam, amet? Sit explicabo et expedita mollitia totam iste culpa
-                    cupiditate eum odit itaque sint hic consectetur omnis dicta
-                    temporibus nostrum, dolores quasi accusantium consequuntur ad enim
-                    molestiae quaerat repudiandae quas? Cumque minus cupiditate sed
-                    cum iure, aut laborum voluptates voluptatem labore architecto
-                    consectetur quasi vitae quos! Distinctio maxime dignissimos
-                    obcaecati odit pariatur consectetur fugiat saepe, eos, harum
-                    recusandae laborum fuga accusantium velit deserunt neque quo
-                    repellendus hic dolor facilis optio.
-                </p>
-            </div>
+            @if (empty($kepalaSekolah))
+                <div>
+                    <h1 class="font-semibold text-lg text-gray-200">Tidak ada konten.</h1>
+                </div>
+            @else
+                <div class="w-96">
+                    <img src="{{ asset('./storage/' . $kepalaSekolah->path) }}"
+                        alt="Kepala Sekolah {{ $kepalaSekolah->nama }}"
+                        class="w-64 mx-auto border-2 border-[#FF5700] rounded-lg shadow-lg" />
+                </div>
+                <div class="md:w-3/5">
+                    <h2 class="font-bold text-xl mt-5">Sambutan Kepala Sekolah</h2>
+                    <p class="text-sm mt-4 text-justify">
+                        {{ $kepalaSekolah->deskripsi }}
+                    </p>
+                    <h3 class="mt-2 font-semibold">{{ $kepalaSekolah->nama }}</h3>
+                </div>
+            @endif
         </div>
         <div class="flex flex-col md:flex-row justify-center items-center">
-            <div class="md:w-3/5 mx-auto order-2 md:order-1">
-                <h2 class="font-bold text-xl mt-5">Sambutan Kepala Pondok</h2>
-                <p class="text-sm mt-4 text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Inventore, facilis distinctio suscipit repellendus culpa
-                    molestiae, ipsam cumque nemo quos quibusdam reprehenderit,
-                    voluptatum aut sequi quis modi molestias saepe blanditiis!
-                    Aliquam, amet? Sit explicabo et expedita mollitia totam iste culpa
-                    cupiditate eum odit itaque sint hic consectetur omnis dicta
-                    temporibus nostrum, dolores quasi accusantium consequuntur ad enim
-                    molestiae quaerat repudiandae quas? Cumque minus cupiditate sed
-                    cum iure, aut laborum voluptates voluptatem labore architecto
-                    consectetur quasi vitae quos! Distinctio maxime dignissimos
-                    obcaecati odit pariatur consectetur fugiat saepe, eos, harum
-                    recusandae laborum fuga accusantium velit deserunt neque quo
-                    repellendus hic dolor facilis optio.
-                </p>
-            </div>
-            <div class="w-96 order-1 md:order-2">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiCedlTGjhufIe4wEBNLKs8iFAQ8rRiPwHmxstCIv5J0exNQMmQu-K6P777dSJVHzL0Sa0pEnIO8kCJkaE8b5n1Mw62MTG7CUeD9_fsOW0XqZXBR0q0fgpmWDo8W4GI8DniKH6ki6OKfDb9pNOBejoyRnfHqnqe2TgK1EaKHR17uupZsH9DKc7_UhpAWa5W=s720"
-                    class="w-64 mx-auto border-2 border-[#FF5700] rounded-lg shadow-lg" />
-            </div>
+            @if (empty($kepalaPondok))
+                <div>
+                    <h1 class="font-semibold text-lg text-gray-200">Tidak ada konten.</h1>
+                </div>
+            @else
+                <div class="md:w-3/5 mx-auto order-2 md:order-1">
+                    <h2 class="font-bold text-xl mt-5">Sambutan Kepala Pondok</h2>
+                    <p class="text-sm mt-4 text-justify">
+                        {{ $kepalaPondok->deskripsi }}
+                    </p>
+                    <h3 class="mt-2 font-semibold">{{ $kepalaPondok->nama }}</h3>
+                </div>
+                <div class="w-96 order-1 md:order-2">
+                    <img src="{{ asset('./storage/' . $kepalaPondok->path) }}"
+                        class="w-64 mx-auto border-2 border-[#FF5700] rounded-lg shadow-lg" />
+                </div>
+            @endif
         </div>
     </section>
     <section>
@@ -110,19 +104,25 @@
                 <h2 class="font-bold text-[#FF5700] text-xl mt-8">Berita Terbaru</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[20px] lg:px-[85px] mt-4">
-                @foreach ($beritas as $berita)
-                    <div class="bg-white flex flex-col p-4 rounded-lg shadow-md">
-                        <img src="{{ asset('storage/' . $berita->gambar) }}"
-                            class="w-full h-48 object-cover rounded-lg mb-4" />
-                        <h3 class="font-bold text-lg">{{ $berita->judul }}</h3>
-                        <p class="text-sm my-2">
-                            {{ Str::limit(strip_tags($berita->konten), 100, '...') }}
-                        </p>
-                        <a href="/berita/{{ $berita->slug }}"
-                            class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
-                            Selengkapnya</a>
+                @if (empty($beritas))
+                    <div>
+                        <h1 class="font-semibold text-lg text-gray-500">Tidak ada berita.</h1>
                     </div>
-                @endforeach
+                @else
+                    @foreach ($beritas as $berita)
+                        <div class="bg-white flex flex-col p-4 rounded-lg shadow-md">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}"
+                                class="w-full h-48 object-cover rounded-lg mb-4" />
+                            <h3 class="font-bold text-lg">{{ $berita->judul }}</h3>
+                            <p class="text-sm my-2">
+                                {{ Str::limit(strip_tags($berita->konten), 100, '...') }}
+                            </p>
+                            <a href="/berita/{{ $berita->slug }}"
+                                class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
+                                Selengkapnya</a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
     </section>
     <section>
@@ -131,19 +131,25 @@
                 <h2 class="font-bold text-[#FF5700] text-xl mt-8">Artikel Terbaru</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-[20px] lg:px-[85px] mt-4">
-                @foreach ($artikels as $artikel)
-                    <div class="bg-white flex flex-col p-4 rounded-lg shadow-md">
-                        <img src="{{ asset('storage/' . $artikel->gambar) }}"
-                            class="w-full h-48 object-cover rounded-lg mb-4" />
-                        <h3 class="font-bold text-lg">{{ $artikel->judul }}</h3>
-                        <p class="text-sm my-2">
-                            {{ Str::limit(strip_tags($artikel->konten), 100, '...') }}
-                        </p>
-                        <a href="/berita/{{ $artikel->slug }}"
-                            class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
-                            Selengkapnya</a>
+                @if (empty($artikels))
+                    <div>
+                        <h1 class="font-semibold text-lg text-gray-500">Tidak ada artikel.</h1>
                     </div>
-                @endforeach
+                @else
+                    @foreach ($artikels as $artikel)
+                        <div class="bg-white flex flex-col p-4 rounded-lg shadow-md">
+                            <img src="{{ asset('storage/' . $artikel->gambar) }}"
+                                class="w-full h-48 object-cover rounded-lg mb-4" />
+                            <h3 class="font-bold text-lg">{{ $artikel->judul }}</h3>
+                            <p class="text-sm my-2">
+                                {{ Str::limit(strip_tags($artikel->konten), 100, '...') }}
+                            </p>
+                            <a href="/berita/{{ $artikel->slug }}"
+                                class="text-[#FF5700] font-bold mt-auto inline-block hover:underline">Baca
+                                Selengkapnya</a>
+                        </div>
+                    @endforeach
+                @endif
             </div>
     </section>
 </x-layouts.app>
