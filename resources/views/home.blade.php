@@ -3,16 +3,19 @@
         <div id="default-carousel" class="relative w-full -z-10" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative min-h-[200px] md:min-h-screen overflow-hidden">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2020/06/UDAH-GEDE33-1100x525.png"
-                        class="block w-full h-auto md:h-full object-contain md:object-cover" alt="..." />
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="https://smpitcahayainsanii.sch.id/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-28-at-09.31.35-1100x525.jpeg"
-                        class="block w-full h-auto md:h-full object-contain md:object-cover" alt="..." />
-                </div>
+                @if (empty($banners))
+                    <div class="flex items-center justify-center h-full">
+                        <h1 class="font-semibold text-lg text-gray-500">Tidak ada banner.</h1>
+                    </div>
+                @else
+                    @foreach ($banners as $banner)
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                            <img src="{{ asset('storage/' . $banner->path) }}"
+                                class="block w-full h-auto md:h-full object-contain md:object-cover"
+                                alt="{{ $banner->nama }}" />
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
